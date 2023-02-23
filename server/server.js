@@ -54,7 +54,7 @@ io.on("connection",(socket)=>{
         }
     });
 
-    socket.on('createMessage',(message,callback)=>{
+    socket.on('createMessage',(message)=>{
         // console.log("createMessage", message);
         let user = users.getUser(socket.id);
         // console.log(user.room);
@@ -64,7 +64,9 @@ io.on("connection",(socket)=>{
         }
         // To emit the message to every user
         // io.emit('newMessage',generateMessage(message.from,message.text));
-        callback("This is the server.")
+
+        // callback("This is the server.")
+        
         // This will emit the event for everyone else except the person who created createMessage event
         // socket.broadcast.emit('newMessage',{
         //     from:message.from,

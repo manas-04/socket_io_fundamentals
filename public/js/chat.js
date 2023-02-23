@@ -102,11 +102,11 @@ socket.on("newLocationMessage",(message)=>{
 document.querySelector("#submit-btn").addEventListener("click",
     function (e){
         e.preventDefault();
+        const messageInput = document.getElementById('message-input');
+        const message = messageInput.value;
         socket.emit("createMessage",{
             from:"User",
-            text:document.querySelector('input[name="message"]').value,
-        },
-        function(){
+            text:message,
         }
     )
 });
